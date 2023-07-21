@@ -1,5 +1,5 @@
 ﻿
-namespace ProduceReport.Core.Repository
+namespace ProduceReport.Core
 {
     public interface IRepository<T> where T : BaseEntity
     {
@@ -7,9 +7,7 @@ namespace ProduceReport.Core.Repository
 
         public Task<IEnumerable<T>> GetAll();
 
-        public Task<int> CreateAsync(T entity);
-
-        public Task Update(T entity);
+        public Task<int> CreateAsync(T entity);                
 
         public Task DeleteAsync(int id);
 

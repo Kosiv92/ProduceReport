@@ -1,4 +1,8 @@
+using ProduceReport.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDataAccess(builder.Configuration);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
