@@ -20,7 +20,7 @@ namespace ProduceReport.Infrastructure.Repositories
             return entity.Id;
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(int? id)
         {
             var entity = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
             if (entity == null)
@@ -34,7 +34,7 @@ namespace ProduceReport.Infrastructure.Repositories
             return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task<T?> GetByIdAsync(int id)
+        public async Task<T?> GetByIdAsync(int? id)
             => await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
 
 

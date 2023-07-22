@@ -10,7 +10,10 @@ namespace ProduceReport.Infrastructure
 
         public DbSet<Workshop> Workshops { get; private set; }
 
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+            Database.EnsureCreated();
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

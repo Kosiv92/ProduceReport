@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProduceReport.Application.Models;
+using ProduceReport.Core;
 using System.Diagnostics;
 
 namespace ProduceReport.Application.Controllers
@@ -7,14 +8,16 @@ namespace ProduceReport.Application.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IRepository<Workshift> _repository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IRepository<Workshift> repository)
         {
             _logger = logger;
+            _repository = repository;
         }
 
-        public IActionResult Index()
-        {
+        public async Task<IActionResult> Index()
+        {            
             return View();
         }
 
