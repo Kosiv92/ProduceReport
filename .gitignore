@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ProduceReport.Application/Produce.db
+/ProduceReport.Application/Produce.db-shm
+/ProduceReport.Application/Produce.db-wal
