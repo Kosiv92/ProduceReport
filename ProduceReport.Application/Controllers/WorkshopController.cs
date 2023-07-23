@@ -17,11 +17,14 @@ namespace ProduceReport.Application.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var workshops = await _service.GetAll();
 
-            var response = workshops.AsQueryable().ProjectTo<WorkshopResponse>(_mapper.ConfigurationProvider);
+            var response = workshops
+                .AsQueryable()
+                .ProjectTo<WorkshopResponse>(_mapper.ConfigurationProvider);
 
             return View(response);
         }
@@ -40,7 +43,7 @@ namespace ProduceReport.Application.Controllers
             {
                 var workshop = _mapper.Map<Workshop>(request);
                 _service.Add(workshop);
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             return View(request);
         }
@@ -71,7 +74,7 @@ namespace ProduceReport.Application.Controllers
             {
                 var workshop = _mapper.Map<Workshop>(dto);
                 _service.Edit(workshop);
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             return View(dto);
         }
@@ -94,9 +97,9 @@ namespace ProduceReport.Application.Controllers
             return View(response);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeletePost(int? id)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]        
+        public async Task<IActionResult>DeletePost(int? id)
         {
             var workshop = await _service.GetById(id);
             if (workshop == null)
@@ -106,10 +109,7 @@ namespace ProduceReport.Application.Controllers
 
             await _service.Delete(workshop.Id);
 
-            return RedirectToAction("Index");
-
-
+            return RedirectToAction(nameof(Index));
         }
-
     }
 }

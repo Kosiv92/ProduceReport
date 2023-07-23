@@ -21,10 +21,8 @@ namespace ProduceReport.Core
             => await _repository.GetAll();
 
         public async Task<Workshop> GetById(int? id)
-        {
-            return await _repository.GetByIdAsync(id);
-        }
-
+            => await _repository.GetByIdAsync(id);
+        
         public async Task Edit(Workshop entity)
         {
             var workshop = await _repository.GetByIdAsync(entity.Id);

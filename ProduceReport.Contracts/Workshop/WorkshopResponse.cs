@@ -4,12 +4,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProduceReport.Contracts
 {
-    public class WorkshopResponse
-    {
+    public record WorkshopResponse
+    {        
+        [Required(ErrorMessage = "Необходимо указать цех")]
         public int Id { get; set; }
 
         [Required]
-        [DisplayName("Наименование цеха")]
-        public string Name { get; set; }
+        [MaxLength(40, ErrorMessage = "Наименование не должно превышать 40 символов")]
+        [DisplayName("Наименование цеха")]        
+        public string Name { get; init; }
     }
 }

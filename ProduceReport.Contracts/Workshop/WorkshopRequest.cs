@@ -4,10 +4,11 @@ using System.ComponentModel;
 
 namespace ProduceReport.Contracts
 {
-    public class WorkshopRequest
+    public record WorkshopRequest
     {
-        [DisplayName("Наименование цеха")]
-        [Required]
-        public string Name { get; set; }
+        [Required()]
+        [MaxLength(40, ErrorMessage = "Наименование не должно превышать 40 символов")]
+        [DisplayName("Наименование цеха")]        
+        public string Name { get; init; }
     }
 }
