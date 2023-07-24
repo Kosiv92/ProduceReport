@@ -6,4 +6,23 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="wwwroot\fontawesome\**" />
+    <Content Remove="wwwroot\fontawesome\**" />
+    <EmbeddedResource Remove="wwwroot\fontawesome\**" />
+    <None Remove="wwwroot\fontawesome\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProduceReport.Contracts\ProduceReport.Contracts.csproj" />
+    <ProjectReference Include="..\ProduceReport.Core\ProduceReport.Core.csproj" />
+    <ProjectReference Include="..\ProduceReport.Infrastructure\ProduceReport.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

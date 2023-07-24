@@ -1,0 +1,63 @@
+﻿@model WorkshiftEditVM
+
+<form method="post" asp-action="Edit">
+    <input asp-for="WorkshiftResponse.Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Изменить данные по смене</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for=@Model.WorkshiftResponse.Date></label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for=@Model.WorkshiftResponse.Date class="form-control" type="date" />
+                        <span asp-validation-for=@Model.WorkshiftResponse.Date class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for=@Model.WorkshiftResponse.ProduceQuantity></label>
+                    </div>
+                    <div class="col-4 mt-2">
+                        <input asp-for=@Model.WorkshiftResponse.ProduceQuantity class="form-control" />
+                        <span asp-validation-for=@Model.WorkshiftResponse.ProduceQuantity class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for=@Model.WorkshopSelectList></label>
+                    </div>
+                    <div class="col-4">
+                        <select name=WorkshiftResponse.WorkshopId
+                                asp-for=WorkshiftResponse.WorkshopId
+                                asp-items=@Model.WorkshopSelectList>                            
+                        </select>
+                        <span asp-validation-for=@Model.WorkshiftResponse.WorkshopId class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row mt-2">
+
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Изменить" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100">Назад</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
