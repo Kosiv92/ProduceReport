@@ -19,6 +19,7 @@ namespace ProduceReport.Contracts
         [Required(ErrorMessage = "Необходимо указать цех")]
         public int WorkshopId { get; init; }
 
+        [DisplayName("Наименование цеха")]
         public string? WorkshopName { get; init; }
 
 

@@ -7,7 +7,7 @@
     </div>
     <div class="col-6 text-right">
         <a asp-controller="Workshop" asp-action="Create" class="btn btn-primary">
-            <i class="fas fa-plus"></i> &nbsp; Добавить новый цех
+            Добавить новый цех
         </a>
     </div>
 </div>
@@ -35,12 +35,12 @@
                         <td width="30%">@obj.Id</td>
                         <td width="50%">@obj.Name</td>
                         <td class="text-center">
-                            <div class="w-75 btn-group" role="group">
+                            <div class="w-55 btn-group" role="group">
                                 <a asp-controller="Workshop" asp-route-Id="@obj.Id" asp-action="Edit" class="btn btn-primary mx-2">
-                                    <i class="fas fa-edit"></i>
+                                    Изменить
                                 </a>
                                 <a asp-controller="Workshop" asp-route-Id="@obj.Id" asp-action="Delete" class="btn btn-danger mx-2">
-                                    <i class="far fa-trash-alt"></i>
+                                    Удалить
                                 </a>
                             </div>
                         </td>
